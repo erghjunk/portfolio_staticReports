@@ -1,4 +1,4 @@
-# Python Portfolio - static reports w/python and html 
+# Python Portfolio - static reports with python and html 
 
 author: evan fedorko, evanjfedorko@gmail.com
 date: 6/2021
