@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BAD Buildings Survey (2021)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style type="text/css">
+* {
+  box-sizing: border-box;
+}
+h1 {color: black; font-family:"Open Sans", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14.5pt; }
+h2 { color: black; font-family:"Open Sans", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+h3 { color: black; font-family:"Open Sans", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+p { padding-top: 3pt; padding-left: 5pt; color: black; font-family:"Open Sans", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; margin:0pt; }
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.full {
+    width: 100%;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+.left_even {
+  width: 50%;
+}
+
+.right_even {
+  width: 50%;
+}
+
+.left_triple {
+    width: 33%;
+}
+
+.mid_triple {
+    width: 33%;
+}
+
+.right_triple {
+    width: 33%;
+}
+
+.row {
+  display: flex;
+  align-items: center; 
+}
+
+.row_body {
+  display: flex;
+  align-items: center; 
+}
+
+/* Clear floats after the columns */
+/*.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}*/
+</style>
+
+<body>
+<!-- header + main info and image -->
+<h1>Property Address: {{ address }}</h1>
+<br>
+<div class="row">
+  <div class="column left" style="background-color:white;">
+    <h2>Property Type</h2>
+    <p>{{ type }}</p>
+    <h2>Current Condition</h2>
+    <p>{{ condition }}</p>
+    <h2>Priority Rating</h2>
+    <p>{{ rating }}</p>
+  </div>
+
+  <!--static version-->
+  <!--<div class="column right" style="background-color:dimgray;">
+    <img border=0 width=573 height=399 src="D:\workspace\thomas\onepagers\images\photograph_of_the_building_unde-20210527-124722.jpg">
+  </div>-->
+
+  <!-- dynamic version -->
+  <div class="column right" style="background-color:white;">
+    <img border=0 width=573 height=399 src="D:\workspace\thomas\onepagers\images\{{ image }}">
+
+  </div>
+</div>
+
+<!-- three column layout combining first and second section -->
+<div class = "row_body">
+    <div class = "column left_triple">
+        <h2>Property Information</h2>
+        <p>Last Survey Date: {{ date }}</p>
+        <p>Building Vacant: {{ occupied }}</p>
+        <p>Years Vacant: <i>{{ years }}</i></p>
+    </div>
+
+    <div class = "column mid_triple">
+        <h2>Location Information</h2>
+        <p>Lot Size: {{ lot_size }}</p>
+        <p>Building Size: {{ building_size }}</p>
+        <p>Parcel Number: {{ parcel_num }}</p>
+    </div>
+    
+    <div class = "column right_triple">
+        <h2 style="color: white;"> &nbsp </h2>
+        <!-- <p>On Historical Registry: {{ reg }}</p> -->
+        <p>Neighborhood/District: {{ hood }}</p>
+        <p>Lot Description: {{ lot_desc }}</p>
+        <p>Lon/Lat: {{ lon_lat }}</p>
+    </div>
+</div>
+
+<!-- two column layout -->
+
+<div class = "row_body">
+    <div class = "column left_even">
+        <h2>Building Condition</h2>
+        <p>Building Frame & Structure: {{ bldg_fr }}</p>
+        <p>Windows & Doors: {{ windows }}</p>
+        <p>Porch: {{ porch }}</p>
+
+    </div>
+
+    <div class = "column right_even">
+        <h2 style="color: white;"> &nbsp </h2>
+        <p>Roof, Chimney, & Gutters: {{ roof }}</p>
+        <p>Siding & Paint: {{ siding }}</p>
+    </div>
+</div>
+
+
+<div class = "row_body">
+    <div class = "column full">
+        <h2>Owner Information</h2>
+        <p>Owner Name: {{ owner }}</p>
+        <p>Owner Address: {{ own_address }}</p>
+        <p>Additional Contact Information:</p>
+        <p>Notes:</p>
+    </div>
+</div>
+
+</body>
+
+</html>
